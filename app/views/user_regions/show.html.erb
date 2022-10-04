@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user_region %>
+
+<div>
+  <%= link_to "Edit this user region", edit_user_region_path(@user_region) %> |
+  <%= link_to "Back to user regions", user_regions_path %>
+
+  <%= button_to "Destroy this user region", @user_region, method: :delete %>
+</div>

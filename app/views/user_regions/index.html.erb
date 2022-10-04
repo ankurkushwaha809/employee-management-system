@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>User regions</h1>
+
+<div id="user_regions">
+  <% @user_regions.each do |user_region| %>
+    <%= render user_region %>
+    <p>
+      <%= link_to "Show this user region", user_region %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user region", new_user_region_path %>
