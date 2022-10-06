@@ -65,6 +65,6 @@ class StatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def state_params
-      params.require(:state).permit(:state_name)
+      params.require(:state).permit(:state_name, :country_id)
     end
 end
