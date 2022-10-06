@@ -2,7 +2,15 @@ class CompaniesController < ApplicationController
     
 
   before_action :set_company, only: %i[ show edit update destroy ]
+  def all_state
+    @country = Country.find(params[:country_id])
+    @states = @country.states
+  end
 
+  def all_city
+    @state = State.find(params[:state_id])
+    @cities = @state.cities
+  end
   # GET /companies or /companies.json
   def index
     @companies = Company.all

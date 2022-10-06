@@ -8,22 +8,30 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div>
-        <% if login_user_signed_in? %>
-           <%= current_login_user.email %>. This cannot be cheese?
-           <%= link_to "Sign out", destroy_login_user_session_path, data: {
-                        turbo_method: :delete,
-                        turbo_confirm: "Are you sure?"
-                      } %>
-        <% else %>
-           <%= link_to 'Sign in', new_login_user_session_path %>
-        <% end %>
-    </div>
-    <%= yield %>
-  </body>
+  </head>
+  
+  <div id="main">
+     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+    <body>
+          <%= render "layouts/side_bar_menu" %>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div>
+          <% if login_user_signed_in? %>
+             <%= current_login_user.email %>. This cannot be cheese?
+             <%= link_to "Sign out", destroy_login_user_session_path, data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %>
+          <% else %>
+             <%= link_to 'Sign in', new_login_user_session_path %>
+          <% end %>
+      </div>
+      <%= yield %>
+    </body>
+  </div>
 </html>
